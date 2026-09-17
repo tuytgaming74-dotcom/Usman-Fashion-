@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usman Fashion | Place Your Order</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8f6f3;
+      color: #222;
+    }
+
+    .header {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 30px;
+      letter-spacing: 2px;
+    }
+
+    .header p {
+      margin: 8px 0 0;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 35px auto;
+      padding: 0 18px;
+    }
+
+    .order-box {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-top: 16px;
+      margin-bottom: 7px;
+      font-weight: bold;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .payment-option {
+      display: block;
+      border: 1px solid #ddd;
+      padding: 12px;
+      border-radius: 6px;
+      margin-top: 8px;
+      font-weight: normal;
+    }
+
+    .payment-option input {
+      width: auto;
+      margin-right: 8px;
+    }
+
+    .payment-details {
+      background: #f5f5f5;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 7px;
+      font-size: 14px;
+    }
+
+    .btn {
+      width: 100%;
+      margin-top: 25px;
+      padding: 15px;
+      border: none;
+      border-radius: 6px;
+      background: #111;
+      color: white;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .success {
+      display: none;
+      text-align: center;
+      padding: 25px;
+      background: #eef8ee;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .success h3 {
+      margin-top: 0;
+    }
+
+    .error {
+      display: none;
+      color: #b00020;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #111;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <h1>USMAN FASHION</h1>
+    <p>LADIES SUITS COLLECTION</p>
+  </div>
+
+  <div class="container">
+    <div class="order-box">
+
+      <h2>Place Your Order</h2>
+
+      <form id="orderForm">
+
+        <label>Full Name</label>
+        <input type="text" name="customer_name" required>
+
+        <label>Mobile Number</label>
+        <input type="tel" name="phone" required>
+
+        <label>Complete Delivery Address</label>
+        <textarea name="address" required></textarea>
+
+        <label>City</label>
+        <input type="text" name="city" required>
+
+        <label>Select Product</label>
+        <select name="product" required>
+          <option value="">Select a product</option>
+          <option>Lawn Printed Suit - Rs. 2,450</option>
+          <option>Embroidered Lawn Suit - Rs. 3,200</option>
+          <option>Party Wear Suit - Rs. 4,950</option>
+          <option>Chikankari Suit - Rs. 3,750</option>
+          <option>Cotton Suit - Rs. 2,250</option>
+        </select>
+
+        <label>Size</label>
+        <select name="size" required>
+          <option value="">Select Size</option>
+          <option>Small</option>
+          <option>Medium</option>
+          <option>Large</option>
+          <option>XL</option>
+          <option>XXL</option>
+          <option>Free Size</option>
+        </select>
+
+        <label>Quantity</label>
+        <input type="number" name="quantity" min="1" value="1" required>
+
+        <label>Payment Method</label>
+
+        <label class="payment-option">
+          <input type="radio" name="payment_method" value="Cash on Delivery" required>
+          💵 Cash on Delivery
+        </label>
+
+        <label class="payment-option">
+          <input type="radio" name="payment_method" value="JazzCash">
+          📱 JazzCash
+        </label>
+
+        <label class="payment-option">
+          <input type="radio" name="payment_method" value="ABHI Bank Microfinance">
+          🏦 ABHI Bank Microfinance
+        </label>
+
+        <div class="payment-details">
+          <strong>Online Payment Details</strong>
+          <p>JazzCash: 03012869639</p>
+          <p>ABHI Bank Microfinance: 03324679639</p>
+        </div>
+
+        <label>Additional Note</label>
+        <textarea name="note" placeholder="Any special instructions (optional)"></textarea>
+
+        <button type="submit" class="btn" id="submitBtn">
+          Place Order
+        </button>
+
+        <div class="error" id="errorMessage">
+          Order submit nahi ho saka. Please dobara try karein.
+        </div>
+
+      </form>
+
+      <div class="success" id="successMessage">
+        <h3>Order Placed Successfully! 🎉</h3>
+        <p>Thank you for shopping with Usman Fashion.</p>
+        <p><strong>Your Order ID:</strong></p>
+        <p id="orderNumber"></p>
+      </div>
+
+      <a href="index.html" class="back">← Back to Collection</a>
+
+    </div>
+  </div>
+
+  <script>
+    const SUPABASE_URL = "https://adyrjpvxhmuqcgisqksk.supabase.co";
+
+    const SUPABASE_KEY = sb_publishable_DwtyDABVxRB3lLM76HVnLQ_C9AV95Gs
+
+    const form = document.getElementById("orderForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const successMessage = document.getElementById("successMessage");
+    const errorMessage = document.getElementById("errorMessage");
+    const orderNumber = document.getElementById("orderNumber");
+
+    form.addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Placing Order...";
+      errorMessage.style.display = "none";
+
+      const formData = new FormData(form);
+
+      const orderData = {
+        customer_name: formData.get("customer_name"),
+        phone: formData.get("phone"),
+        address: formData.get("address"),
+        city: formData.get("city"),
+        product: formData.get("product"),
+        size: formData.get("size"),
+        quantity: Number(formData.get("quantity")),
+        payment_method: formData.get("payment_method"),
+        note: formData.get("note") || null
+      };
+
+      try {
+        const response = await fetch(
+          SUPABASE_URL + "/rest/v1/orders",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "apikey": SUPABASE_KEY,
+              "Authorization": "Bearer " + SUPABASE_KEY,
+              "Prefer": "return=representation"
+            },
+            body: JSON.stringify(orderData)
+          }
+        );
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          throw new Error("Order failed");
+        }
+
+        form.style.display = "none";
+        successMessage.style.display = "block";
+
+        const orderId =
+          result[0] && result[0].id
+            ? result[0].id.substring(0, 8).toUpperCase()
+            : "UF-" + Date.now();
+
+        orderNumber.textContent = "UF-" + orderId;
+
+      } catch (error) {
+        console.error(error);
+        errorMessage.style.display = "block";
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Place Order";
+      }
+    });
+  </script>
+
+</body>
+            </html>
