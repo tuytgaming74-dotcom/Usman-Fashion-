@@ -210,7 +210,7 @@ async function loadOrders() {
   const data = await response.json();
 
   if (!response.ok) {
-    ordersDiv.innerHTML = "<p>Orders load nahi ho sake.</p>";
+    ordersDiv.innerHTML = "<p>Orders load nahi ho sake: " + (data.message || data.error_description || data.hint || JSON.stringify(data)) + "</p>";
     return;
   }
 
